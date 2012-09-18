@@ -9,8 +9,34 @@ using System.Windows.Forms;
 
 namespace ListaFilmesAssistidos
 {
+    static public class Filmes
+    {
+        public string[] Nomes = new string[50];
+        public string[] Generos =new string[50];
+        public string[] Datas = new string[50];
+        public string[] Locais = new string[50];
+    }
+
     public partial class Form1 : Form
     {
+        public void Cadastrar()
+        {
+            
+            
+
+            if (nometxt.Text != "" & generocbox.Text != "" & datamask.Text != "" & localtxt.Text != "")
+            {
+                Dictionary<string, List<string>> dicionario = new Dictionary<string, List<string>>();
+                List<string> dados = new List<string>();
+
+            }
+
+            else
+            {
+                MessageBox.Show("Erro!! Digite corretamente os campos", "Informação", MessageBoxButtons.OK);
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -23,15 +49,7 @@ namespace ListaFilmesAssistidos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (nometxt.Text != "" & generocbox.Text != "" & datamask.Text != "" & localtxt.Text != "")
-            {
-                MessageBox.Show("Salvo com sucesso !!", "Informação", MessageBoxButtons.OK);
-            }
-
-            else
-            {
-                MessageBox.Show("Erro!! Digite corretamente os campos", "Informação", MessageBoxButtons.OK);
-            }
+            Cadastrar();
         }
     }
 }
