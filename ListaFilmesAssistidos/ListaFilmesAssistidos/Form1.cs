@@ -15,5 +15,23 @@ namespace ListaFilmesAssistidos
         {
             InitializeComponent();
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (nometxt.Text != "" & generocbox.Text != "" & datamask.Text != "" & localtxt.Text != "")
+            {
+                MessageBox.Show("Salvo com sucesso !!", "Informação", MessageBoxButtons.OK);
+            }
+
+            else
+            {
+                MessageBox.Show("Erro!! Digite corretamente os campos", "Informação", MessageBoxButtons.OK);
+            }
+        }
     }
 }
