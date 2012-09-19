@@ -30,7 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.localtxt = new System.Windows.Forms.TextBox();
-            this.datamask = new System.Windows.Forms.MaskedTextBox();
             this.generocbox = new System.Windows.Forms.ComboBox();
             this.nometxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,14 +46,15 @@
             this.CData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CLocal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.localtxt);
-            this.groupBox1.Controls.Add(this.datamask);
             this.groupBox1.Controls.Add(this.generocbox);
             this.groupBox1.Controls.Add(this.nometxt);
             this.groupBox1.Controls.Add(this.label4);
@@ -74,14 +74,6 @@
             this.localtxt.Name = "localtxt";
             this.localtxt.Size = new System.Drawing.Size(232, 20);
             this.localtxt.TabIndex = 7;
-            // 
-            // datamask
-            // 
-            this.datamask.Location = new System.Drawing.Point(192, 110);
-            this.datamask.Mask = "00/00/0000";
-            this.datamask.Name = "datamask";
-            this.datamask.Size = new System.Drawing.Size(67, 20);
-            this.datamask.TabIndex = 6;
             // 
             // generocbox
             // 
@@ -197,6 +189,7 @@
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // CNome
             // 
@@ -226,6 +219,14 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(192, 110);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(90, 20);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,7 +254,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox generocbox;
-        private System.Windows.Forms.MaskedTextBox datamask;
         private System.Windows.Forms.TextBox localtxt;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
@@ -265,6 +265,7 @@
         private System.Windows.Forms.ColumnHeader CData;
         private System.Windows.Forms.ColumnHeader CLocal;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
