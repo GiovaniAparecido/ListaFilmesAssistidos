@@ -15,11 +15,59 @@ namespace ListaFilmesAssistidos
         
         public void Cadastrar()
         {
-            string datinha = dateTimePicker1.Value.ToShortDateString();
-            Filme agarra = new Filme(nometxt.Text, generocbox.Text, datinha, localtxt.Text);
+            //Dictionary<string, List<Filme>> dicionario = new Dictionary<string, List<Filme>>();
+            //////////string datinha = dateTimePicker1.Value.ToShortDateString();
+
+            //////////Filme agarra = new Filme(nometxt.Text, generocbox.Text, datinha, localtxt.Text);
+
+            //////////ListViewItem Item = new ListViewItem(nometxt.Text);
+
             if (nometxt.Text != "" & generocbox.Text != "" & localtxt.Text != "")
             {
+                Dictionary<string, List<Filme>> dicionario;
+                string dataconvertidada = dateTimePicker1.Value.ToShortDateString();
 
+                Filme agarra = new Filme(nometxt.Text, generocbox.Text, dataconvertidada, localtxt.Text);
+                if (generocbox.Text == "Ação")
+                {
+                    ListViewItem Item = new ListViewItem(nometxt.Text);
+                }
+                else if(generocbox.Text == "Aventura")
+                {
+
+                }
+                else if (generocbox.Text == "Comédia")
+                {
+
+                }
+                else if (generocbox.Text == "Terror")
+                {
+
+                }
+                else if (generocbox.Text == "Suspense")
+                {
+
+                }
+                else if (generocbox.Text == "Documentário")
+                {
+
+                }
+                else if (generocbox.Text == "Infantil")
+                {
+
+                }
+                else if (generocbox.Text == "Romance")
+                {
+
+                }
+                else if (generocbox.Text == "FicçãoCientífica")
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Informação", "Esse Gênero não existe.");
+                }
             }
 
             else
@@ -65,6 +113,11 @@ namespace ListaFilmesAssistidos
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
