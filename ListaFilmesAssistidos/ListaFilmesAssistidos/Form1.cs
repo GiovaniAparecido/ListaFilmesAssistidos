@@ -12,62 +12,27 @@ namespace ListaFilmesAssistidos
     public partial class Form1 : Form
     {
         public Dictionary<string, List<Filme>> dicionario = new Dictionary<string, List<Filme>>();
-        
+
         public void Cadastrar()
         {
-            //Dictionary<string, List<Filme>> dicionario = new Dictionary<string, List<Filme>>();
-            //////////string datinha = dateTimePicker1.Value.ToShortDateString();
-
-            //////////Filme agarra = new Filme(nometxt.Text, generocbox.Text, datinha, localtxt.Text);
-
-            //////////ListViewItem Item = new ListViewItem(nometxt.Text);
-
             if (nometxt.Text != "" & generocbox.Text != "" & localtxt.Text != "")
             {
-                Dictionary<string, List<Filme>> dicionario;
                 string dataconvertidada = dateTimePicker1.Value.ToShortDateString();
 
                 Filme agarra = new Filme(nometxt.Text, generocbox.Text, dataconvertidada, localtxt.Text);
-                if (generocbox.Text == "Ação")
-                {
-                    ListViewItem Item = new ListViewItem(nometxt.Text);
-                }
-                else if(generocbox.Text == "Aventura")
-                {
 
-                }
-                else if (generocbox.Text == "Comédia")
-                {
+                    ListViewItem Itens = new ListViewItem();
+                    Itens.Text = nometxt.Text;
+                    Itens.Group = listView1.Groups[generocbox.Text];
+                    listView1.Items.Add(Itens);
+                    Itens.SubItems.Add(generocbox.Text);
+                    Itens.SubItems.Add(dataconvertidada);
+                    Itens.SubItems.Add(localtxt.Text);
+                    List<Filme> pegarpassar = new List<Filme>();
 
-                }
-                else if (generocbox.Text == "Terror")
-                {
-
-                }
-                else if (generocbox.Text == "Suspense")
-                {
-
-                }
-                else if (generocbox.Text == "Documentário")
-                {
-
-                }
-                else if (generocbox.Text == "Infantil")
-                {
-
-                }
-                else if (generocbox.Text == "Romance")
-                {
-
-                }
-                else if (generocbox.Text == "FicçãoCientífica")
-                {
-
-                }
-                else
-                {
-                    MessageBox.Show("Informação", "Esse Gênero não existe.");
-                }
+                    pegarpassar.Add(agarra);
+                    dicionario.Add(generocbox.Text, pegarpassar);
+                
             }
 
             else
@@ -75,27 +40,6 @@ namespace ListaFilmesAssistidos
                 MessageBox.Show("Erro!! Digite corretamente os campos", "Informação", MessageBoxButtons.OK);
             }
         }
-
-
-
-
-
-        //Dictionary<string, List<string>> dicionario = new Dictionary<string, List<string>>();
-        //        //List<string> dados = new List<string>();
-        //public void Cadastrar()
-        //{
-        //    if (nometxt.Text != "" & generocbox.Text != "" & datamask.Text != "" & localtxt.Text != "")
-        //    {
-        //        //Dictionary<string, List<string>> dicionario = new Dictionary<string, List<string>>();
-        //        //List<string> dados = new List<string>();
-
-        //    }
-
-        //    else
-        //    {
-        //        MessageBox.Show("Erro!! Digite corretamente os campos", "Informação", MessageBoxButtons.OK);
-        //    }
-        //}
 
         public Form1()
         {
