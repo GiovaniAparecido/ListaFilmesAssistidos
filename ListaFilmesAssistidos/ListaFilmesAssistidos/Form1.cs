@@ -11,8 +11,8 @@ namespace ListaFilmesAssistidos
 {
     public partial class Form1 : Form
     {
-        public Dictionary<string, List<Filme>> dicionario = new Dictionary<string, List<Filme>>();
-
+        Dictionary<string, List<Filme>> dicionario = new Dictionary<string, List<Filme>>();
+        //List<Filme> pegarpassar;
         public void Cadastrar()
         {
             if (nometxt.Text != "" & generocbox.Text != "" & localtxt.Text != "")
@@ -21,18 +21,26 @@ namespace ListaFilmesAssistidos
 
                 Filme agarra = new Filme(nometxt.Text, generocbox.Text, dataconvertidada, localtxt.Text);
 
-                    ListViewItem Itens = new ListViewItem();
-                    Itens.Text = nometxt.Text;
-                    Itens.Group = listView1.Groups[generocbox.Text];
-                    listView1.Items.Add(Itens);
-                    Itens.SubItems.Add(generocbox.Text);
-                    Itens.SubItems.Add(dataconvertidada);
-                    Itens.SubItems.Add(localtxt.Text);
-                    List<Filme> pegarpassar = new List<Filme>();
+                ListViewItem Itens = new ListViewItem();
+                Itens.Text = nometxt.Text;
+                Itens.Group = listView1.Groups[generocbox.Text];
+                listView1.Items.Add(Itens);
+                Itens.SubItems.Add(generocbox.Text);
+                Itens.SubItems.Add(dataconvertidada);
+                Itens.SubItems.Add(localtxt.Text);
 
+                //Verifica se a chave já exite
+                if (dicionario.ContainsKey(generocbox.Text))
+                {
+                    List<Filme> pegarpassar = dicionario[nometxt.Text];
+                    dicionario.Add(generocbox.Text, pegarpassar);
+                }
+                else
+                {
+                    List<Filme> pegarpassar = new List<Filme>();
                     pegarpassar.Add(agarra);
                     dicionario.Add(generocbox.Text, pegarpassar);
-                
+                }
             }
 
             else
