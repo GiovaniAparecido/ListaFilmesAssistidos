@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup28 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup29 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup30 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup31 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup32 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup33 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup34 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup35 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup36 = new System.Windows.Forms.ListViewGroup("Ficçãocientífica", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Ficçãocientífica", System.Windows.Forms.HorizontalAlignment.Left);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.localtxt = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btDeletar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.CNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -159,7 +159,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.btDeletar);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Location = new System.Drawing.Point(58, 222);
             this.groupBox2.Name = "groupBox2";
@@ -176,14 +176,15 @@
             this.button3.Text = "&Pesquisas";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btDeletar
             // 
-            this.button2.Location = new System.Drawing.Point(120, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "&Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btDeletar.Location = new System.Drawing.Point(120, 19);
+            this.btDeletar.Name = "btDeletar";
+            this.btDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btDeletar.TabIndex = 1;
+            this.btDeletar.Text = "&Deletar";
+            this.btDeletar.UseVisualStyleBackColor = true;
+            this.btDeletar.Click += new System.EventHandler(this.btDeletar_Click);
             // 
             // button1
             // 
@@ -203,34 +204,35 @@
             this.CData,
             this.CLocal});
             this.listView1.FullRowSelect = true;
-            listViewGroup28.Header = "Ação";
-            listViewGroup28.Name = "Ação";
-            listViewGroup29.Header = "Aventura";
-            listViewGroup29.Name = "Aventura";
-            listViewGroup30.Header = "Comédia";
-            listViewGroup30.Name = "Comédia";
-            listViewGroup31.Header = "Terror";
-            listViewGroup31.Name = "Terror";
-            listViewGroup32.Header = "Suspense";
-            listViewGroup32.Name = "Suspense";
-            listViewGroup33.Header = "Documentário";
-            listViewGroup33.Name = "Documentário";
-            listViewGroup34.Header = "Infantil";
-            listViewGroup34.Name = "Infantil";
-            listViewGroup35.Header = "Romance";
-            listViewGroup35.Name = "Romance";
-            listViewGroup36.Header = "Ficçãocientífica";
-            listViewGroup36.Name = "Ficçãocientífica";
+            listViewGroup10.Header = "Ação";
+            listViewGroup10.Name = "Ação";
+            listViewGroup11.Header = "Aventura";
+            listViewGroup11.Name = "Aventura";
+            listViewGroup12.Header = "Comédia";
+            listViewGroup12.Name = "Comédia";
+            listViewGroup13.Header = "Terror";
+            listViewGroup13.Name = "Terror";
+            listViewGroup14.Header = "Suspense";
+            listViewGroup14.Name = "Suspense";
+            listViewGroup15.Header = "Documentário";
+            listViewGroup15.Name = "Documentário";
+            listViewGroup16.Header = "Infantil";
+            listViewGroup16.Name = "Infantil";
+            listViewGroup17.Header = "Romance";
+            listViewGroup17.Name = "Romance";
+            listViewGroup18.Header = "Ficçãocientífica";
+            listViewGroup18.Name = "Ficçãocientífica";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup28,
-            listViewGroup29,
-            listViewGroup30,
-            listViewGroup31,
-            listViewGroup32,
-            listViewGroup33,
-            listViewGroup34,
-            listViewGroup35,
-            listViewGroup36});
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15,
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18});
+            this.listView1.LabelEdit = true;
             this.listView1.Location = new System.Drawing.Point(376, 36);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(498, 195);
@@ -298,7 +300,7 @@
         private System.Windows.Forms.TextBox localtxt;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btDeletar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader CNome;

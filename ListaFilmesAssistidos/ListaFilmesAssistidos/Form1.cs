@@ -12,13 +12,15 @@ namespace ListaFilmesAssistidos
     public partial class Form1 : Form
     {
         Dictionary<string, List<Filme>> dicionario = new Dictionary<string, List<Filme>>();
-        //List<Filme> pegarpassar;
+        
         public void Cadastrar()
         {
             if (nometxt.Text != "" & generocbox.Text != "" & localtxt.Text != "")
             {
+                //Converte a data para uma data menor.
                 string dataconvertidada = dateTimePicker1.Value.ToShortDateString();
 
+                // A variável agarra pega todos o textos editados no visual e armzena na classe.
                 Filme agarra = new Filme(nometxt.Text, generocbox.Text, dataconvertidada, localtxt.Text);
 
                 ListViewItem Itens = new ListViewItem();
@@ -29,7 +31,7 @@ namespace ListaFilmesAssistidos
                 Itens.SubItems.Add(dataconvertidada);
                 Itens.SubItems.Add(localtxt.Text);
 
-                //Verifica se a chave já exiSte
+                //Verifica se a chave já existe
                 if (dicionario.ContainsKey(generocbox.Text))
                 {
                     List<Filme> pegarpassar = dicionario[generocbox.Text];
@@ -80,6 +82,12 @@ namespace ListaFilmesAssistidos
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btDeletar_Click(object sender, EventArgs e)
+        {
+            //listBox1.Items.Remove(listBox1.Text);
+            //ListView1.ListItems.Remove(ListView1.SelectedItem);
         }
     }
 }
