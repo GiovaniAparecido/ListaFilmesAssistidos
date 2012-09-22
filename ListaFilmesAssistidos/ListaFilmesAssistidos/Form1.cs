@@ -29,17 +29,19 @@ namespace ListaFilmesAssistidos
                 Itens.SubItems.Add(dataconvertidada);
                 Itens.SubItems.Add(localtxt.Text);
 
-                //Verifica se a chave já exite
+                //Verifica se a chave já exiSte
                 if (dicionario.ContainsKey(generocbox.Text))
                 {
-                    List<Filme> pegarpassar = dicionario[nometxt.Text];
-                    dicionario.Add(generocbox.Text, pegarpassar);
+                    List<Filme> pegarpassar = dicionario[generocbox.Text];
+                    pegarpassar.Add(agarra);
+                    Limpar();
                 }
                 else
                 {
                     List<Filme> pegarpassar = new List<Filme>();
                     pegarpassar.Add(agarra);
                     dicionario.Add(generocbox.Text, pegarpassar);
+                    Limpar();
                 }
             }
 
@@ -47,6 +49,12 @@ namespace ListaFilmesAssistidos
             {
                 MessageBox.Show("Erro!! Digite corretamente os campos", "Informação", MessageBoxButtons.OK);
             }
+        }
+
+        public void Limpar()
+        {
+            nometxt.Text = "";
+            localtxt.Text = "";
         }
 
         public Form1()
