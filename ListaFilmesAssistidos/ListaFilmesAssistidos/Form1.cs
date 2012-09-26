@@ -12,7 +12,8 @@ namespace ListaFilmesAssistidos
     public partial class Form1 : Form
     {
         Dictionary<string, List<Filme>> dicionario = new Dictionary<string, List<Filme>>();
-        
+        ListViewItem Itens = new ListViewItem();
+
         public void Cadastrar()
         {
             if (nometxt.Text != "" & generocbox.Text != "" & localtxt.Text != "")
@@ -86,8 +87,49 @@ namespace ListaFilmesAssistidos
 
         private void btDeletar_Click(object sender, EventArgs e)
         {
-            //listBox1.Items.Remove(listBox1.Text);
-            //ListView1.ListItems.Remove(ListView1.SelectedItem);
+            foreach (ListViewItem PegaItem in listView1.SelectedItems)
+            {
+                List<Filme> lis = dicionario[PegaItem.SubItems[1].Text];
+                List<Filme> lis2 = dicionario[PegaItem.Text];
+
+                if(dicionario.ContainsKey(lis.ToString()))
+                {
+                    if(dicionario.ContainsValue(lis2))
+                    {
+                        dicionario.Remove(PegaItem.Text);
+                    }
+                }
+                //while (dicionario.ContainsKey(lis.ToString()))
+                //{
+
+                //}
+
+                listView1.Items.Remove(PegaItem);
+            }
+            
+        }
+
+        private void btAlterar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (KeyValuePair<string, List<Filme>> pesquisa in dicionario)
+            {
+                //listView2.Items.AddRange
+                //ListViewItem RecebePesq = new ListViewItem(pesquisa.Value[0].ToString());
+                //ListViewItem RecebePesq = new ListViewItem();
+
+                ListViewItem RecebePesq = new ListViewItem();
+                //////////////////RecebePesq = pesquisa.Value
+                //RecebePesq.Group = listView1.Groups[RecebePesq.Text];
+                listView2.Items.Add(pesquisa.Key);
+                //RecebePesq.SubItems.Add(generocbox.Text);
+                //RecebePesq.SubItems.Add(dataconvertidada);
+                //RecebePesq.SubItems.Add(localtxt.Text);
+            }
         }
     }
 }
