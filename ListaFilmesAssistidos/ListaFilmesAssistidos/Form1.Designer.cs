@@ -38,6 +38,15 @@
             System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Ficçãocientífica", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Documentário", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Romanse", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Ficçãocientífica", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup19 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.localtxt = new System.Windows.Forms.TextBox();
@@ -48,6 +57,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btAlterar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btDeletar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -57,9 +67,11 @@
             this.CData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CLocal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btAlterar = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.Nome1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LGênero = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LLocalAssistido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -172,6 +184,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // btAlterar
+            // 
+            this.btAlterar.Location = new System.Drawing.Point(7, 59);
+            this.btAlterar.Name = "btAlterar";
+            this.btAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btAlterar.TabIndex = 3;
+            this.btAlterar.Text = "&Alterar";
+            this.btAlterar.UseVisualStyleBackColor = true;
+            this.btAlterar.Click += new System.EventHandler(this.btAlterar_Click);
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(222, 19);
@@ -245,7 +267,7 @@
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // CNome
             // 
@@ -275,24 +297,44 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 
-            // btAlterar
-            // 
-            this.btAlterar.Location = new System.Drawing.Point(7, 59);
-            this.btAlterar.Name = "btAlterar";
-            this.btAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btAlterar.TabIndex = 3;
-            this.btAlterar.Text = "&Alterar";
-            this.btAlterar.UseVisualStyleBackColor = true;
-            this.btAlterar.Click += new System.EventHandler(this.btAlterar_Click);
-            // 
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Nome1});
+            this.LNome,
+            this.LGênero,
+            this.LData,
+            this.LLocalAssistido});
             listViewGroup10.Header = "Ação";
             listViewGroup10.Name = "Ação";
+            listViewGroup11.Header = "Aventura";
+            listViewGroup11.Name = "Aventura";
+            listViewGroup12.Header = "Comédia";
+            listViewGroup12.Name = "Comédia";
+            listViewGroup13.Header = "Terror";
+            listViewGroup13.Name = "Terror";
+            listViewGroup14.Header = "Suspense";
+            listViewGroup14.Name = "Suspense";
+            listViewGroup15.Header = "Documentário";
+            listViewGroup15.Name = "Documentário";
+            listViewGroup16.Header = "Infantil";
+            listViewGroup16.Name = "Infantil";
+            listViewGroup17.Header = "Romanse";
+            listViewGroup17.Name = "Romance";
+            listViewGroup18.Header = "Ficçãocientífica";
+            listViewGroup18.Name = "Ficçãocientífica";
+            listViewGroup19.Header = "ListViewGroup";
+            listViewGroup19.Name = "listViewGroup1";
             this.listView2.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup10});
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15,
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18,
+            listViewGroup19});
             this.listView2.Location = new System.Drawing.Point(376, 278);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(510, 131);
@@ -300,10 +342,24 @@
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
             // 
-            // Nome1
+            // LNome
             // 
-            this.Nome1.Text = "Nome1";
-            this.Nome1.Width = 245;
+            this.LNome.Text = "Nome";
+            this.LNome.Width = 158;
+            // 
+            // LGênero
+            // 
+            this.LGênero.Text = "Gênero";
+            this.LGênero.Width = 67;
+            // 
+            // LData
+            // 
+            this.LData.Text = "Data";
+            // 
+            // LLocalAssistido
+            // 
+            this.LLocalAssistido.Text = "Local Assistido";
+            this.LLocalAssistido.Width = 188;
             // 
             // Form1
             // 
@@ -348,7 +404,10 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btAlterar;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader Nome1;
+        private System.Windows.Forms.ColumnHeader LNome;
+        private System.Windows.Forms.ColumnHeader LGênero;
+        private System.Windows.Forms.ColumnHeader LData;
+        private System.Windows.Forms.ColumnHeader LLocalAssistido;
     }
 }
 

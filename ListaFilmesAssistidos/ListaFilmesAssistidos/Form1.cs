@@ -13,6 +13,10 @@ namespace ListaFilmesAssistidos
     {
         Dictionary<string, List<Filme>> dicionario = new Dictionary<string, List<Filme>>();
         ListViewItem Itens = new ListViewItem();
+        string EditarFilme;
+        int EditarGenero;
+        DateTime EditarData;
+        string EditarLocal;
 
         public void Cadastrar()
         {
@@ -20,10 +24,11 @@ namespace ListaFilmesAssistidos
             {
                 //Converte a data para uma data menor.
                 string dataconvertidada = dateTimePicker1.Value.ToShortDateString();
-
-                // A variável agarra pega todos o textos editados no visual e armzena na classe.
-                Filme agarra = new Filme(nometxt.Text, generocbox.Text, dataconvertidada, localtxt.Text);
-
+                
+                // O objeto agarra pega todos o textos editados no visual e armzena na classe.
+                Filme agarra = new Filme(nometxt.Text, generocbox.Text, dateTimePicker1.Text , localtxt.Text);
+                
+                
                 ListViewItem Itens = new ListViewItem();
                 Itens.Text = nometxt.Text;
                 Itens.Group = listView1.Groups[generocbox.Text];
@@ -58,6 +63,7 @@ namespace ListaFilmesAssistidos
         {
             nometxt.Text = "";
             localtxt.Text = "";
+            generocbox.Text = "";
         }
 
         public Form1()
@@ -75,10 +81,7 @@ namespace ListaFilmesAssistidos
             Cadastrar();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -90,20 +93,18 @@ namespace ListaFilmesAssistidos
             foreach (ListViewItem PegaItem in listView1.SelectedItems)
             {
                 List<Filme> lis = dicionario[PegaItem.SubItems[1].Text];
-                List<Filme> lis2 = dicionario[PegaItem.Text];
+                //List<Filme> lis2 = dicionario[PegaItem.Text];
 
-                if(dicionario.ContainsKey(lis.ToString()))
+
+
+                if(lis.ToString().CompareTo(dicionario.ToString())== 0)
                 {
-                    if(dicionario.ContainsValue(lis2))
+                    MessageBox.Show("ccccccccc","ccccccccc");
+                    if(dicionario.ContainsValue(lis))
                     {
                         dicionario.Remove(PegaItem.Text);
                     }
                 }
-                //while (dicionario.ContainsKey(lis.ToString()))
-                //{
-
-                //}
-
                 listView1.Items.Remove(PegaItem);
             }
             
@@ -118,17 +119,27 @@ namespace ListaFilmesAssistidos
         {
             foreach (KeyValuePair<string, List<Filme>> pesquisa in dicionario)
             {
-                //listView2.Items.AddRange
-                //ListViewItem RecebePesq = new ListViewItem(pesquisa.Value[0].ToString());
-                //ListViewItem RecebePesq = new ListViewItem();
-
                 ListViewItem RecebePesq = new ListViewItem();
-                //////////////////RecebePesq = pesquisa.Value
-                //RecebePesq.Group = listView1.Groups[RecebePesq.Text];
+
                 listView2.Items.Add(pesquisa.Key);
-                //RecebePesq.SubItems.Add(generocbox.Text);
-                //RecebePesq.SubItems.Add(dataconvertidada);
-                //RecebePesq.SubItems.Add(localtxt.Text);
+
+                RecebePesq.SubItems.Add(pesquisa.Key);
+            }
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            foreach (ListViewItem FilmeSelecionado in listView1.SelectedItems)
+            {
+                nometxt.Text = FilmeSelecionado.Text;
+                generocbox.Text = FilmeSelecionado.Group.Header;
+                //dateTimePicker1.Value = Convert.ToDateTime(FilmeSelecionado.SubItems[1].Text);
+                localtxt.Text = FilmeSelecionado.SubItems[2].Text;
+
+                EditarFilme = FilmeSelecionado.Text;
+                //EditarData = Convert.ToDateTime(FilmeSelecionado.SubItems[1].Text);
+                EditarLocal = FilmeSelecionado.SubItems[2].Text;
+                EditarGenero = listView1.Groups.IndexOf(FilmeSelecionado.Group);
             }
         }
     }
