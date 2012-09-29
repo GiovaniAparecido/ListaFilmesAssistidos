@@ -15,7 +15,7 @@ namespace ListaFilmesAssistidos
         ListViewItem Itens = new ListViewItem();
         string EditarFilme;
         int EditarGenero;
-        DateTime EditarData;
+        //DateTime EditarData;
         string EditarLocal;
 
         public void Cadastrar()
@@ -88,31 +88,59 @@ namespace ListaFilmesAssistidos
 
         }
 
+        
+
         private void btDeletar_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem PegaItem in listView1.SelectedItems)
             {
-                List<Filme> lis = dicionario[PegaItem.SubItems[1].Text];
-                //List<Filme> lis2 = dicionario[PegaItem.Text];
+                //List<Filme> lis = dicionario[PegaItem.SubItems[1].Text];
+                
+                string Genero1 = PegaItem.SubItems[1].Text;// Group.Header;
+                List<Filme> LiFilme = dicionario[Genero1];
+                
+                string Nome = PegaItem.Text;
+                //List<Filme> Nome1 = PegaItem.Text;
 
-
-
-                if(lis.ToString().CompareTo(dicionario.ToString())== 0)
+                for (int I = 0; I < LiFilme.Count; I++ )
                 {
-                    MessageBox.Show("ccccccccc","ccccccccc");
-                    if(dicionario.ContainsValue(lis))
+                    if(LiFilme[I].Nome == PegaItem.Text)
                     {
-                        dicionario.Remove(PegaItem.Text);
+                        MessageBox.Show("Excluído","");
+                        LiFilme.RemoveAt(I);
+                        dicionario.Remove(Genero1);
+                        I--;
+                        //List<Filme> ListVal = dicionario[Nome];
+                        //for()
+                        //{
+
+                        //}
                     }
                 }
                 listView1.Items.Remove(PegaItem);
+
             }
             
         }
 
         private void btAlterar_Click(object sender, EventArgs e)
         {
-            
+            foreach(List<Filme> PegaValor in dicionario.Values)
+            {
+                foreach(Filme DicionarioValores in PegaValor)
+                {
+                    if(DicionarioValores.Nome == EditarFilme)
+                    {
+                        //listView1.SelectedItems
+
+
+                        DicionarioValores.Nome = nometxt.Text;
+                        DicionarioValores.Genero = generocbox.Text;
+                        DicionarioValores.Data = dateTimePicker1.Text;
+                        DicionarioValores.Local = localtxt.Text;
+                    }
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -134,11 +162,11 @@ namespace ListaFilmesAssistidos
                 nometxt.Text = FilmeSelecionado.Text;
                 generocbox.Text = FilmeSelecionado.Group.Header;
                 //dateTimePicker1.Value = Convert.ToDateTime(FilmeSelecionado.SubItems[1].Text);
-                localtxt.Text = FilmeSelecionado.SubItems[2].Text;
+                localtxt.Text = FilmeSelecionado.SubItems[3].Text;
 
                 EditarFilme = FilmeSelecionado.Text;
                 //EditarData = Convert.ToDateTime(FilmeSelecionado.SubItems[1].Text);
-                EditarLocal = FilmeSelecionado.SubItems[2].Text;
+                EditarLocal = FilmeSelecionado.SubItems[3].Text;
                 EditarGenero = listView1.Groups.IndexOf(FilmeSelecionado.Group);
             }
         }
